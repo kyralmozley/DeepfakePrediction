@@ -1,0 +1,6 @@
+# ignore video files
+*.mp4
+# ignore processed folder (openface working directory)
+processed/
+# ignore dataset file as will be too big
+train_dataset_[0-50].csv 
