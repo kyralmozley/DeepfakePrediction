@@ -1,6 +1,9 @@
 # ignore video files
 *.mp4
+*.csv
 # ignore processed folder (openface working directory)
 processed/
 # ignore dataset file as will be too big
 dataset/
+# ignore charts created
+figures/
