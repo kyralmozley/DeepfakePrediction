@@ -28,7 +28,7 @@ def main(path, part):
     files = os.listdir(path)
 
     #Create a csv file to store the output in, provide the headers
-    with open('train_dataset_{}.csv'.format(part), 'w') as f:
+    with open('dataset/train_dataset_{}.csv'.format(part), 'w') as f:
         write = csv.writer(f)
         write.writerow(pd.read_csv('columns.csv'))
 
@@ -55,13 +55,19 @@ def main(path, part):
         data = df_visual_features.copy()
         data.insert(loc=0, column='filename', value=file)
         data.insert(loc=len(data.columns), column='label', value=label)
-        data.to_csv('train_dataset_{}.csv'.format(part), mode='a', index=False, header=False)
+        data.to_csv('dataset/train_dataset_{}.csv'.format(part), mode='a', index=False, header=False)
 
 
 
 
 if __name__ == '__main__':
     path = '/media/kyralm/68d88bad-cf04-4698-adb1-0e3035052da9/home/kyra/Desktop/train'
+
+    for i in range(16,43):
+        folder = path+'/dfdc_train_part_{}'.format(i)
+        main(folder,i)
+    '''
     part = 0
     path = path+'/dfdc_train_part_{}'.format(part)
     main(path, part)
+    '''
